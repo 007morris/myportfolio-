@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="text"></p>
+    <p id="text2"></p>
+
+</body>
+<script>
+   let x =  '{"name":"John", "age":30, "car":null}';
+
+    const myJSON = '{"name":"John", "age":30, "car":null}';
+
+    const newx = JSON.parse(x);
+    myObj = {"name":"John", "age":30, "car":null};
+    const myObj2 = JSON.stringify(myObj);
+    // document.getElementById('text').innerHTML = "<p class='p-3' style='color:red'>HELLo</p>";
+    
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange=function(){
+        if(this.readyState==4 && this.status==200){
+            let text = this.responseText;
+
+            document.getElementById('text').innerHTML = text;
+        }
+    }
+    xhttp.open('GET','signin.html',true);
+    //xhttp.open("GET",'calculator.html',true)
+    // xhttp.open("GET",'text.txt',true)
+    xhttp.send();
+    
+
+    xhttp2 = new XMLHttpRequest();
+    xhttp2.onreadystatechange=function(){
+        if(this.readyState==4 && this.status==200){
+            let text2 = this.responseText;
+
+            alert(text2);
+            document.getElementById('text2').innerHTML = text2;
+        }
+    }
+    // xhttp.open('GET','signin.html',true); // this is html written as html
+    // xhttp2.open("GET",'text2.txt',true) //This is a html file written in plain
+    xhttp2.open("GET",'text.txt',true) // this is a JSON OBJECT written as plain text;
+    xhttp2.send();
+
+    
+
+// 26.API
+// a.Form API
+// b.History API back, go, forward, length
+// d.Fetch API
+
+</script>
+</html>

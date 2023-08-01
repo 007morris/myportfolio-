@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="" id="content">
+    <p id="data"></p>
+    </div>
+    <script>
+        // getFile('text.txt','content');
+        getFile('https://randomuser.me/api/','data');
+
+        async function getFile(file,elt){
+                let a = await fetch(file);
+                // let b = await a.text();
+                let b = await a.json();
+                // alert(typeof b);
+                document.querySelector('#'+elt).innerHTML = b.results[0].name.last;
+        }
+            
+        
+    </script>
+</body>
+</html>
